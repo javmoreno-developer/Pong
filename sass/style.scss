@@ -1,0 +1,89 @@
+$background: #190B28;
+$blue: #0EB1D2;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#all {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background;
+}
+
+#board {
+    height: 60%;
+    width: 40%;
+    border:3px solid white;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+
+}
+
+#center {
+    height: 100%;
+    width: 1%;
+    border-right: 5px dashed #000;
+}
+
+#player_figure {
+    height: 10%;
+    width: 1%;
+    top: 45%;
+    left: 32%;
+    background-color: white;
+    position: absolute;
+}
+
+#machine_figure {
+    height: 10%;
+    width: 1%;
+    top: 52%;
+    left: 67%;
+    background-color: white;
+    position: absolute;   
+}
+
+#ball {
+    height: 2%;
+    width: 1%;
+    top: 30%;
+    left: 49.5%;
+    background-color: white;
+    position: absolute;   
+    border-radius: 50%;
+}
+
+.start {
+    animation: start-ball 3s ease-in-out forwards;
+}
+
+#marks {
+    height: 10vh;
+    width: 40%;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+}
+
+@keyframes start-ball {
+    from {
+        top: 30%;
+        left: 49.5%;
+    }
+
+    to {
+        top: 48%;
+        left: 33%;
+    }
+}
