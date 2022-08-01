@@ -1,10 +1,13 @@
 $background: #190B28;
 $blue: #0EB1D2;
 
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #all {
@@ -18,7 +21,7 @@ $blue: #0EB1D2;
 
 #board {
     height: 60%;
-    width: 40%;
+    width: 90%;
     border:3px solid white;
     background-color: $blue;
     display: flex;
@@ -34,25 +37,25 @@ $blue: #0EB1D2;
 
 #player_figure {
     height: 10%;
-    width: 1%;
+    width: 3%;
     top: 45%;
-    left: 32%;
+    left: 12%;
     background-color: white;
     position: absolute;
 }
 
 #machine_figure {
     height: 10%;
-    width: 1%;
-    top: 62%;
-    left: 67%;
+    width: 3%;
+    top: 66%;
+    left: 87%;
     background-color: white;
     position: absolute;   
 }
 
 #ball {
     height: 2%;
-    width: 1%;
+    width: 3%;
     top: 28%;
     left: 49.5%;
     background-color: white;
@@ -87,3 +90,28 @@ $blue: #0EB1D2;
         left: 33%;
     }
 }
+
+@media(min-width: 800px) {
+    #board {
+        height: 60%;
+        width: 40%;
+    }
+    #player_figure {
+        height: 10%;
+        width: 1%;
+        top: 45%;
+        left: 32%;
+    }
+    #machine_figure {
+        height: 10%;
+        width: 1%;
+        top: 62%;
+        left: 67%;
+    }
+    #ball {
+        height: 2%;
+        width: 1%;
+        top: 28%;
+        left: 49.5%;
+    }
+} 

@@ -3,7 +3,7 @@
 window.onload = () => {
     //loopMachine();
     setTimeout(() => {
-        //moveBall(orientacion);
+        // moveBall(orientacion);
     }, 1000);
 };
 //movimiento jugador
@@ -102,7 +102,7 @@ function moveBall(param) {
                 $("#ball").css("left", leftB + 10);
                 break;
         }
-    }, 300);
+    }, 200);
 }
 /**
  * colision jugador
@@ -121,7 +121,7 @@ function player_colision() {
     let bottom_pelota = $("#ball")[0].getBoundingClientRect().bottom;
     if ((left_pelota <= right_jugador && left_pelota >= left_jugador) && ((top_pelota <= bottom_jugador && top_pelota >= top_jugador) || (bottom_pelota >= top_jugador && bottom_pelota <= bottom_jugador))) {
         //console.log("colision jugador");
-        change_orientacion();
+        change_orientacion_aux();
     }
 }
 /**
@@ -141,17 +141,35 @@ function machine_colision() {
     let bottom_pelota = $("#ball")[0].getBoundingClientRect().bottom;
     if ((right_pelota >= left_maquina && right_pelota <= right_maquina) && ((top_pelota <= bottom_maquina && top_pelota >= top_maquina) || (bottom_pelota >= top_maquina && bottom_pelota <= bottom_maquina))) {
         //console.log("colision maquina");
-        change_orientacion();
+        change_orientacion_aux();
     }
 }
 /**
  * change orientacion
  * cuando colisionas te envia aqui va a cambiar tu orientacion.
  */
-function change_orientacion() {
+//machine and player figure
+function change_orientacion_aux() {
     switch (orientacion) {
         case "infIzq":
             orientacion = "infDer";
+            break;
+        case "infDer":
+            orientacion = "infIzq";
+            break;
+        case "supIzq":
+            orientacion = "supDer";
+            break;
+        case "supDer":
+            orientacion = "supIzq";
+            break;
+    }
+}
+//borders
+function change_orientacion() {
+    switch (orientacion) {
+        case "infIzq":
+            orientacion = "supIzq";
             break;
         case "infDer":
             orientacion = "supDer";
@@ -160,7 +178,7 @@ function change_orientacion() {
             orientacion = "infIzq";
             break;
         case "supDer":
-            orientacion = "supIzq";
+            orientacion = "infDer";
             break;
     }
 }
@@ -208,6 +226,9 @@ function point_player() {
         setTimeout(() => {
             reboot();
         }, 500);
+        if (playerMark >= 5) {
+            endgame(1);
+        }
     }
 }
 function point_machina() {
@@ -221,6 +242,9 @@ function point_machina() {
         setTimeout(() => {
             reboot();
         }, 500);
+        if (machineMark >= 5) {
+            endgame(0);
+        }
     }
 }
 function reboot() {
@@ -229,3 +253,36 @@ function reboot() {
     orientacion = "infIzq";
     moveBall(orientacion);
 }
+function endgame(param) {
+    if (param == 0) {
+        alert("ganaste");
+    }
+    else {
+        alert("gano la maquina");
+    }
+    window.location.reload();
+}
+/**
+ * Responsive
+ */
+let move = true;
+let start = 0;
+$(document).on("touchstart", (e) => {
+    let touch = e.targetTouches[0];
+    start = touch.pageY;
+});
+$(document).on("touchmove", (e) => {
+    if (move) {
+        let touch = e.targetTouches[0];
+        if (touch.pageY < start) {
+            up($("#player_figure"));
+        }
+        else {
+            down($("#player_figure"));
+        }
+        move = false;
+    }
+    setTimeout(() => {
+        move = true;
+    }, 500);
+});

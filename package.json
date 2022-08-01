@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "sass": "^1.54.0"
+    "@types/sweetalert": "^2.0.4",
+    "sass": "^1.54.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.4.24"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.14"
