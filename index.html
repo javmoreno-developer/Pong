@@ -20,6 +20,56 @@
                 <h1 id="player_mark">0</h1>
             </div>
         </div>
+        <div id="menu">
+            <h1>PONG</h1>
+            <div class="form_label">
+                <label for="speed">Velocidad de la bola</label>
+                <select id="speed">
+                    <option value="100">100ms</option>
+                    <option value="200">200ms</option>
+                    <option value="300">300ms</option>
+                </select>
+            </div>
+            <h4>Modo de juego</h4>
+            <div class="options_menu">
+                <div class="options_label" id="fade_responsive">
+                    <input type="radio" id="PVP" value="PVP">
+                    <label for="PVP">PVP</label>
+                </div>
+
+                <div class="options_label">
+                    <input type="radio" id="PVM" value="PVM">
+                    <label for="PVM">PVM</label>
+                </div>
+                
+            </div>
+            
+            <div class="toggleMessage" id="toggle_pvp">
+                <h4>Controles</h4>
+                <p>PJ1 ( izq ): flechas del teclado</p>
+                <p>PJ2 ( der ): w-a</p>
+            </div>
+
+            <div id="toggle_options" class="toggleMessage2">
+                <div class="form_label">
+                    <label for="speedMachine">Velocidad de la maquina</label>
+                    <select id="speedMachine">
+                        <option value="400">400ms</option>
+                        <option value="500">500ms</option>
+                        <option value="600">600ms</option>
+                    </select>
+                </div>
+                <div class="form_label">
+                    <label for="level">Dificultad</label>
+                    <select id="level">
+                        <option value="15">Facil</option>
+                        <option value="10">Normal</option>
+                        <option value="5">Dificil</option>
+                    </select>
+                </div>
+            </div>
+            <button id="confirm">Jugar</button>
+        </div>
     </section>
 
 

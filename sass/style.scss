@@ -2,6 +2,7 @@ $background: #190B28;
 
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 
 * {
     margin: 0;
@@ -80,6 +81,82 @@ $background: #190B28;
     align-items: center;
 }
 
+#menu {
+    position: absolute;
+    top: 23%;
+    height: 54%;
+    width: 88%;
+    transition: all 1s;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    h1 {
+        font-family: 'Press Start 2P', cursive;
+    }
+
+    .form_label {
+        height: 8vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        label,select,option  {
+            font-family: 'Inter', sans-serif !important;
+        }
+    }
+
+    .options_menu {
+        width: 100%;
+        height: 5vh;
+      
+        display: flex;
+        justify-content: space-around;
+
+        .options_label {
+            width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            label,select,option  {
+                font-family: 'Inter', sans-serif !important;
+            }
+        }
+    }
+}
+
+.toggleMessage {
+    flex-direction: column;
+    display: none;
+    p {
+        font-family: 'Inter', sans-serif !important;
+    }
+}
+
+.toggleMessage2 {
+    display: none;
+}
+
+#toggle_options {
+    height: 10vh;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#confirm {
+    background-color: #2A9D8F;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
+
+#fade_responsive {
+    display: none !important;
+}
+
 @keyframes gradient {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -108,6 +185,13 @@ $background: #190B28;
         width: 1%;
         top: 28%;
         left: 49.5%;
+    }
+    #menu {
+        height: 54%;
+        width: 38%; 
+    }
+    #fade_responsive {
+        display: flex !important;
     }
 } 
 

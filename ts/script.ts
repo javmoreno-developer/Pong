@@ -1,12 +1,31 @@
-//inicio
-window.onload=()=> {
-    loopMachine();
-    setTimeout(()=> {
-    // moveBall(orientacion);
-    },1000);
-   
-}
 
+ //inicio
+ let speed = 0;
+ let speedMachine = 0;
+ let level = 0;
+ let pvp = false;
+
+function startGame() {
+    //obtengo los datos del formulario
+    speed = $("#speed").val() as number;
+    if($("#PVM").is(':checked')) {
+        speedMachine = $("#speedMachine").val() as number;
+        level = $("#level").val() as number;
+        levelAsignation();
+        loopMachine();
+    } else {
+        pvp = true;
+        speedMachine = speed;
+        level = 10;
+        levelAsignation();
+        pvp_game();
+    }
+    //empieza el juego
+   
+    setTimeout(()=> {
+      moveBall(orientacion);
+    },1000);
+}
 //movimiento jugador
 $(document).keydown((e)=> {
     //40 abajo 38 arriba
@@ -55,7 +74,7 @@ function loopMachine():void {
         } else {
             r = down($("#machine_figure"));
         }
-    },500);
+    },speedMachine);
 }
 
 
@@ -118,7 +137,7 @@ function moveBall(param: string) {
                 $("#ball").css("left",leftB+10);
             break;
         }
-    },200);
+    },speed);
 }
 
 /**
@@ -252,7 +271,7 @@ function point_player() {
         setTimeout(()=> {
             reboot();
         },500);
-        if(playerMark >= 5) {
+        if(playerMark >= 1) {
             endgame(1);
         }
     }
@@ -268,7 +287,7 @@ function point_machina() {
         setTimeout(()=> {
             reboot();
         },500);
-        if(machineMark >= 5) {
+        if(machineMark >= 1) {
             endgame(0);
         }
     }
@@ -283,9 +302,17 @@ function reboot() {
 
 function endgame(param: number) {
     if(param == 0) {
-        alert("ganaste");
+        if(pvp == true) {
+            alert("gano el jugador 1");
+        } else {
+            alert("ganaste");
+        }
     } else {
-        alert("gano la maquina");
+        if(pvp == true) {
+            alert("gano el jugador 2");
+        } else {
+            alert("gano la maquina");
+        }
     }
 
     window.location.reload();
@@ -318,3 +345,51 @@ $(document).on("touchstart",(e)=> {
     },500);
 
  });
+
+
+ //opciones del menu
+ //PVP vs PVM
+ $("#PVP").click(()=> {
+    if($("#PVM").is(':checked')) {
+        $("#PVM").prop("checked", false);
+    }
+    $("#toggle_options").css("display","none");
+    $("#toggle_pvp").css("display","flex");
+});
+
+$("#PVM").click(()=> {
+    if($("#PVP").is(':checked')) {
+        $("#PVP").prop("checked", false);
+    }
+    $("#toggle_pvp").css("display","none");
+    $("#toggle_options").css("display","flex");
+ });
+
+ //confirm
+ $("#confirm").click(()=> {
+    if($("#PVP").is(':checked') || $("#PVM").is(':checked')) {
+        $("#menu").css("opacity","0");
+        startGame();
+        setTimeout(()=> {
+            $("#menu").css("display","none");
+        },1000);
+    }
+ });
+
+ //levelAsignation
+function levelAsignation() {
+    $("#machine_figure").css("height",`${level}%`);
+   
+}
+
+//controles pj2
+function pvp_game() {
+    //s = 83 w = 87
+    $(document).keydown((e)=> {
+        if(e.which == 83) {
+            down($("#machine_figure"));
+        } else if(e.which == 87) {
+            up($("#machine_figure"));
+        }
+    });
+}
