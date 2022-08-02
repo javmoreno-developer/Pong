@@ -19,7 +19,9 @@
   height: 60%;
   width: 90%;
   border: 3px solid white;
-  background-color: #0EB1D2;
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  background-size: 400%;
+  animation: gradient 10s ease-in-out infinite reverse;
   display: flex;
   justify-content: center;
 }
@@ -58,10 +60,6 @@
   border-radius: 50%;
 }
 
-.start {
-  animation: start-ball 3s ease-in-out forwards;
-}
-
 #marks {
   height: 10vh;
   width: 40%;
@@ -74,14 +72,15 @@
   align-items: center;
 }
 
-@keyframes start-ball {
-  from {
-    top: 30%;
-    left: 49.5%;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  to {
-    top: 48%;
-    left: 33%;
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 @media (min-width: 800px) {

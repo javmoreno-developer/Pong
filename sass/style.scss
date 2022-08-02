@@ -1,5 +1,5 @@
 $background: #190B28;
-$blue: #0EB1D2;
+
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -17,13 +17,16 @@ $blue: #0EB1D2;
     justify-content: center;
     align-items: center;
     background-color: $background;
+   
 }
 
 #board {
     height: 60%;
     width: 90%;
     border:3px solid white;
-    background-color: $blue;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    background-size: 400%;
+    animation: gradient 10s ease-in-out infinite reverse;
     display: flex;
     justify-content: center;
 
@@ -63,9 +66,7 @@ $blue: #0EB1D2;
     border-radius: 50%;
 }
 
-.start {
-    animation: start-ball 3s ease-in-out forwards;
-}
+
 
 #marks {
     height: 10vh;
@@ -79,16 +80,10 @@ $blue: #0EB1D2;
     align-items: center;
 }
 
-@keyframes start-ball {
-    from {
-        top: 30%;
-        left: 49.5%;
-    }
-
-    to {
-        top: 48%;
-        left: 33%;
-    }
+@keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 @media(min-width: 800px) {
@@ -115,3 +110,4 @@ $blue: #0EB1D2;
         left: 49.5%;
     }
 } 
+

@@ -1,6 +1,6 @@
 //inicio
 window.onload=()=> {
-    //loopMachine();
+    loopMachine();
     setTimeout(()=> {
     // moveBall(orientacion);
     },1000);
@@ -30,7 +30,6 @@ function down(param: any): boolean | void {
         param.css("top", "+=20px");
         return false;
     } else {
-       // console.log("No bajas mas")
         return true;
     }
 }
@@ -41,7 +40,6 @@ function up(param: any): boolean | void {
         param.css("top", "-=20px");
         return true;
     } else {
-       // console.log("No subes mas");
         return false;
     }
 }
@@ -69,7 +67,6 @@ let turno = "maquina";
 let moveAni: any;
 
 function stopInterval() {
-    //console.log("parando animacion");
     clearInterval(moveAni);
 }
 
@@ -141,7 +138,6 @@ function player_colision() {
     let bottom_pelota = $("#ball")[0].getBoundingClientRect().bottom;
 
     if((left_pelota <= right_jugador && left_pelota >= left_jugador) && ((top_pelota <= bottom_jugador && top_pelota >= top_jugador) || (bottom_pelota >= top_jugador && bottom_pelota <= bottom_jugador)) ) {
-        //console.log("colision jugador");
         change_orientacion_aux();
     } 
 }
@@ -164,7 +160,6 @@ function machine_colision() {
     let bottom_pelota = $("#ball")[0].getBoundingClientRect().bottom;
 
     if((right_pelota >= left_maquina && right_pelota <= right_maquina) && ((top_pelota <= bottom_maquina && top_pelota >= top_maquina) || (bottom_pelota >= top_maquina && bottom_pelota <= bottom_maquina))) {
-        //console.log("colision maquina");
         change_orientacion_aux();
     }
    
@@ -220,7 +215,6 @@ function down_colision() {
     let bottom_board = $("#board")[0].getBoundingClientRect().bottom;
     
     if(bottom_pelota >= bottom_board) {
-       // console.log("colision abajo");
         change_orientacion();
     }
 }
@@ -234,7 +228,6 @@ function top_colision() {
     let top_board = $("#board")[0].getBoundingClientRect().top;
 
     if(top_pelota <= top_board) {
-       // console.log("colision arriba");
         change_orientacion();
     }
 }
@@ -253,7 +246,6 @@ function point_player() {
     let right_pelota = $("#ball")[0].getBoundingClientRect().right;
     let left_jugador = $("#player_figure")[0].getBoundingClientRect().left;
     if(right_pelota <= left_jugador) {
-        //console.log("punto para el jugador");
         playerMark++;
         $("#player_mark").text(playerMark);
         stopInterval();
@@ -270,7 +262,6 @@ function point_machina() {
     let left_pelota = $("#ball")[0].getBoundingClientRect().left;
     let right_jugador = $("#machine_figure")[0].getBoundingClientRect().right;
     if(left_pelota >= right_jugador) {
-       // console.log("punto para la maquina");
         machineMark++;
         $("#machine_mark").text(machineMark);
         stopInterval();
