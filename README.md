@@ -1,5 +1,6 @@
 # Pong
-![pong](https://user-images.githubusercontent.com/55782974/182387596-019bc366-5d6b-43de-a239-1846ba497b3a.png)
+
+ <img src="https://user-images.githubusercontent.com/55782974/182400841-5d31af5b-67b6-448f-a39f-cc15b9204507.png" width="350" title="hover text">
 
 ## Como jugar 🚀
 Para jugar deberás visitar el siguiente enlace.
