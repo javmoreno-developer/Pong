@@ -4,10 +4,11 @@
  let speedMachine = 0;
  let level = 0;
  let pvp = false;
-
+ let pointsToWin = 0; 
 function startGame() {
     //obtengo los datos del formulario
     speed = $("#speed").val() as number;
+    pointsToWin = $("#points").val() as number;
     if($("#PVM").is(':checked')) {
         speedMachine = $("#speedMachine").val() as number;
         level = $("#level").val() as number;
@@ -271,7 +272,7 @@ function point_player() {
         setTimeout(()=> {
             reboot();
         },500);
-        if(playerMark >= 1) {
+        if(playerMark >= pointsToWin) {
             endgame(1);
         }
     }
@@ -287,7 +288,7 @@ function point_machina() {
         setTimeout(()=> {
             reboot();
         },500);
-        if(machineMark >= 1) {
+        if(machineMark >= pointsToWin) {
             endgame(0);
         }
     }
@@ -367,7 +368,8 @@ $("#PVM").click(()=> {
 
  //confirm
  $("#confirm").click(()=> {
-    if($("#PVP").is(':checked') || $("#PVM").is(':checked')) {
+    
+    if(($("#PVP").is(':checked') || $("#PVM").is(':checked')) && $("#points").val() != "") {
         $("#menu").css("opacity","0");
         startGame();
         setTimeout(()=> {
