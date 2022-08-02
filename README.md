@@ -8,9 +8,9 @@ Para jugar deberás visitar el siguiente enlace.
 ## Opciones para el usuario
 El usuario podrá jugar en cualquier dispositivo que posea un navegador.Además existen dos modos de juego: **PVP** y **PVM**,que serán accesibles a través del menu principal.
 
-Al elegir la opción de PVP se explicarán los controles \
+Al elegir la opción de **PVP** se explicarán los controles .
 
-Al elegir la opción de PVM se tendrá que elegir la velocidad a la que se moverá el adversario y la dificultad que supondrá un mayor o menor tamaño para la raqueta del adversario\
+Al elegir la opción de **PVM** se tendrá que elegir la velocidad a la que se moverá el adversario y la dificultad que supondrá un mayor o menor tamaño para la raqueta del adversario.
 
 ## Construido con 🛠️
 
